@@ -10,6 +10,24 @@
 </head>
 <body>
 
+<div class="wrapper">
+
+    @include('admin.layouts.sidebar')
+
+    <div class="main">
+
+        @include('admin.layouts.navbar')
+
+        <main class="content">
+            @yield('content')
+        </main>
+
+        {{-- footer--}}
+
+        @include('admin.layouts.footer')
+    </div>
+</div>
+
 
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

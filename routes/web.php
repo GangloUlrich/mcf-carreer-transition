@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('accueil');
 
 Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'] )
     ->middleware(['auth'])
