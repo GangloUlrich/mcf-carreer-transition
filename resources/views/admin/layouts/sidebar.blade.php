@@ -29,6 +29,14 @@
                 <a class="sidebar-link" href="">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Secteurs</span>
                 </a>
+
+                <a class="sidebar-link" href="{{ route('secteurs.create') }}">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Nouveau secteur</span>
+                </a>
+
+                <a class="sidebar-link" href="{{ route('secteurs.index') }}">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste des secteurs</span>
+                </a>
             </li>
 
 

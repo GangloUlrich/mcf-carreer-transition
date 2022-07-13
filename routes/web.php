@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('accueil');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('accueil');
 
-Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'] )
+Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth', 'statusUserCheck'])->group(function () {
+
+//    Secteur routes
+Route::resource('secteurs',\App\Http\Controllers\Admin\SecteurController::class);
+
+});
+
+require __DIR__ . '/auth.php';
