@@ -84,7 +84,7 @@ class FiliereController extends Controller
      */
     public function edit(Filiere $filiere,$ecole)
     {
-        $filieres = Filiere::all();
+        $filieres = Ecole::find($ecole)->filieres;
 
         return  view('admin.filieres.edit',['filieres' => $filieres, 'ecole' => $ecole]);
     }

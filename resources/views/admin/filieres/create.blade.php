@@ -60,8 +60,9 @@
                     <div class="card-body">
                         <table class='table table-striped'>
                             <tr class='table-success'>
-
+                                <th>N</th>
                                 <th>Libelle</th>
+                                <th>Actions</th>
                             </tr>
 
 
@@ -70,7 +71,8 @@
                                 @foreach ($filieres as $filiere)
 
                                     <tr>
-                                        <td>{{ $filiere->nom}}</td>
+                                        <td>{{ $loop->index }}</td>
+                                        <td>{{ $filiere->libelle}}</td>
                                     </tr>
 
                                 @endforeach
