@@ -74,8 +74,8 @@ class SecteurController extends Controller
      */
     public function edit(Secteur $secteur)
     {
-
-        return view('admin.secteurs.edit',['secteur' => $secteur ]);
+        $secteurs = Secteur::all();
+        return view('admin.secteurs.edit',['secteur' => $secteur, 'secteurs' => $secteurs ]);
     }
 
     /**
@@ -87,7 +87,17 @@ class SecteurController extends Controller
      */
     public function update(Request $request, Secteur $secteur)
     {
-        //
+        $validator = Validator::make($request->all(),Secteur::$rules);
+
+        if($validator->fails()){
+            return redirect()->route('secteurs.create')->withErrors($validator)->withInput();
+        }
+
+        $secteur->update($request->all());
+
+        Session::flash('message', 'Secteur modifié');
+
+        return  redirect()->route('secteurs.index');
     }
 
     /**
@@ -98,7 +108,6 @@ class SecteurController extends Controller
      */
     public function destroy(Secteur $secteur)
     {
-        dd('ici');
 
         $secteur->delete();
 

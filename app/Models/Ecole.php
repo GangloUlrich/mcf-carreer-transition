@@ -5,15 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Secteur extends Model
+class Ecole extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'libelle'
+        'id',
+        'nom',
     ];
 
     public static  $rules = [
-        'libelle' => 'required|unique:secteurs'
+        'nom' => 'required|string|unique:ecoles',
     ];
+
+    public function filieres(){
+        return $this->hasMany(Filiere::class);
+    }
 }
