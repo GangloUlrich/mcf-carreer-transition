@@ -2,13 +2,15 @@
 
 @section('content')
     <div class="container-fluid p-0">
-        <a href="{{ route('secteurs.index') }}" class="btn btn-secondary mb-3"> <i class="fa-solid fa-angles-left"></i> Retour</a>
+        <a href="{{ route('ecoles.index') }}" class="btn btn-secondary mb-3"> <i class="fa-solid fa-angles-left"></i> Retour</a>
+        <a href="{{ route('ecoles.filieres.create',['ecole'=> $ecole->id]) }}" class="btn btn-primary mb-3"> <i class="fa-solid fa-plus"></i> Nouvelle filière</a>
+
 
 
         <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">Secteurs</h1>
+            <h1 class="h3 d-inline align-middle">Ecoles</h1>
             <span class="badge bg-warning text-white ms-2" href="upgrade-to-pro.html">
-     Creer un nouveau secteur
+     Détails d'une école
   </span>
         </div>
 
@@ -24,27 +26,10 @@
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Nouveau secteur</h5>
+                        <h5 class="card-title mb-0"> Détails d'une école</h5>
                     </div>
                     <div class="card-body">
-
-                        <form action="{{ route('secteurs.store') }}" method='Post'>
-
-                            @csrf()
-                            <div class="mb-3">
-                                <input type="text" name='libelle'
-                                       class="form-control @error('libelle') is-invalid @enderror"
-                                       placeholder="libelle">
-                                @error('libelle')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-
-                            <button class="btn btn-success" name='enregistrer' type='submit'>Enregistrer
-
-                            </button>
-                        </form>
+                        <h3>{{ $ecole->nom }}</h3>
                     </div>
                 </div>
 
@@ -54,23 +39,23 @@
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Liste des secteurs </h5>
+                        <h5 class="card-title mb-0">Liste des filières </h5>
                     </div>
 
                     <div class="card-body">
                         <table class='table table-striped'>
                             <tr class='table-success'>
 
-                                <th>Libelle</th>
+                                <th>Libelle de la filière</th>
                             </tr>
 
 
-                            @if(sizeof($secteurs) > 0 )
+                            @if(sizeof($ecole->filieres) > 0 )
 
-                                @foreach ($secteurs as $secteur)
+                                @foreach ($ecole->filieres as $filiere)
 
                                     <tr>
-                                        <td>{{ $secteur->libelle}}</td>
+                                        <td>{{ $filiere->libelle}}</td>
                                     </tr>
 
                                 @endforeach

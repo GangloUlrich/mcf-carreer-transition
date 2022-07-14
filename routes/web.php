@@ -21,8 +21,9 @@ Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class
 
 Route::middleware(['auth', 'checkUserStatus'])->group(function () {
 
-//    Secteur routes
 Route::resource('secteurs',\App\Http\Controllers\Admin\SecteurController::class);
+Route::resource('ecoles',\App\Http\Controllers\Admin\EcoleController::class);
+Route::resource('ecoles.filieres',\App\Http\Controllers\Admin\FiliereController::class);
 
 });
 

@@ -10,35 +10,34 @@
             </li>
 
             <li class="sidebar-item active">
-                <a class="sidebar-link" href="">
+                <a class="sidebar-link" href="{{ route('dashboard') }}">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
 
-            <li class="sidebar-item ">
-                <a class="sidebar-link" href="">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Boursiers</span>
+            <li class="sidebar-item">
+                <a href="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span class="align-middle">Ecoles</span>
                 </a>
-            </li>
-            <li class="sidebar-item ">
-                <a class="sidebar-link" href="">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Ecoles</span>
-                </a>
-            </li>
-            <li class="sidebar-item ">
-                <a class="sidebar-link" href="">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Secteurs</span>
-                </a>
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" style="">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('ecoles.create') }}"><i class="fa-solid fa-plus"></i> Nouvelle école</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('ecoles.index') }}"><i class="fa-solid fa-align-justify"></i> Liste des écoles</a></li>
 
-                <a class="sidebar-link" href="{{ route('secteurs.create') }}">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Nouveau secteur</span>
-                </a>
-
-                <a class="sidebar-link" href="{{ route('secteurs.index') }}">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste des secteurs</span>
-                </a>
+                </ul>
             </li>
 
+            <li class="sidebar-item">
+                <a href="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span class="align-middle">Secteurs</span>
+                </a>
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" style="">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('secteurs.create') }}"><i class="fa-solid fa-plus"></i> Nouveau secteur</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('secteurs.index') }}"><i class="fa-solid fa-align-justify"></i> Liste des secteurs</a></li>
+
+                </ul>
+            </li>
 
 
         </ul>
