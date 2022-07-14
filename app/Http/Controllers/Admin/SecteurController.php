@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Secteur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class SecteurController extends Controller
 {
@@ -28,7 +29,9 @@ class SecteurController extends Controller
      */
     public function create()
     {
-        return view('admin.secteurs.create');
+        $secteurs = Secteur::all();
+
+        return view('admin.secteurs.create',['secteurs' => $secteurs]);
     }
 
     /**
@@ -47,7 +50,9 @@ class SecteurController extends Controller
 
         $secteur = Secteur::create($request->all());
 
-        return  route('secteurs.index');
+        Session::flash('message', 'Nouveau secteur cree');
+
+        return  redirect()->route('secteurs.create');
     }
 
     /**
@@ -69,7 +74,8 @@ class SecteurController extends Controller
      */
     public function edit(Secteur $secteur)
     {
-        //
+
+        return view('admin.secteurs.edit',['secteur' => $secteur ]);
     }
 
     /**
@@ -92,6 +98,13 @@ class SecteurController extends Controller
      */
     public function destroy(Secteur $secteur)
     {
-        //
+        dd('ici');
+
+        $secteur->delete();
+
+        Session::flash('message', 'Secteur supprime');
+
+
+        return redirect()->route('secteurs.index');
     }
 }

@@ -19,7 +19,7 @@ Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class
     ->middleware(['auth'])
     ->name('dashboard');
 
-Route::middleware(['auth', 'statusUserCheck'])->group(function () {
+Route::middleware(['auth', 'checkUserStatus'])->group(function () {
 
 //    Secteur routes
 Route::resource('secteurs',\App\Http\Controllers\Admin\SecteurController::class);
