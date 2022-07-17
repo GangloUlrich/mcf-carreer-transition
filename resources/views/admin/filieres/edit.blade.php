@@ -2,13 +2,14 @@
 
 @section('content')
     <div class="container-fluid p-0">
-        <a href="{{ route('ecoles.index') }}" class="btn btn-secondary mb-3"> <i class="fa-solid fa-angles-left"></i> Retour</a>
-        <a href="{{ route('ecoles.index') }}" class="btn btn-primary mb-3"> <i class="fa-solid fa-align-justify"></i> Toutes les écoles</a>
+        <a href="{{ route('ecoles.show',['ecole' => $ecole]) }}" class="btn btn-secondary mb-3"> <i class="fa-solid fa-angles-left"></i> Retour</a>
+
+
         <div class="mb-3">
-            <h1 class="h3 d-inline align-middle">Ecoles</h1>
+            <h1 class="h3 d-inline align-middle">Filières</h1>
             <span class="badge bg-warning text-white ms-2" href="upgrade-to-pro.html">
-               Modifier une école
-            </span>
+     Creer un nouvelle filière
+  </span>
         </div>
 
 
@@ -17,24 +18,25 @@
             <div class="alert alert-success">{{ Session::get('message') }}</div>
 
         @endif
+
+
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Modifier une école</h5>
+                        <h5 class="card-title mb-0">Modfier une filiere</h5>
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ route('ecoles.update',['ecole' => $ecole]) }}" method='Post'>
+                        <form action="{{ route('ecoles.filieres.update',['ecole' => $ecole, 'filiere' => $filiere]) }}" method='POST'>
 
                             @csrf()
                             @method('PUT')
                             <div class="mb-3">
-                                <input type="text" name='nom'
-                                       class="form-control @error('nom') is-invalid @enderror"
-                                       placeholder="nom"
-                                       value="{{old('nom', $ecole->nom)}}">
-                                @error('nom')
+                                <input type="text" name='libelle'
+                                       class="form-control @error('libelle') is-invalid @enderror"
+                                       placeholder="libelle" value="{{ old('libelle',$filiere->libelle) }}">
+                                @error('libelle')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -59,17 +61,19 @@
                     <div class="card-body">
                         <table class='table table-striped'>
                             <tr class='table-success'>
-
+                                <th>N</th>
                                 <th>Libelle</th>
+                                <th>Actions</th>
                             </tr>
 
 
-                            @if(sizeof($ecoles) > 0 )
+                            @if(sizeof($filieres) > 0 )
 
-                                @foreach ($ecoles as $ecole)
+                                @foreach ($filieres as $filiere)
 
                                     <tr>
-                                        <td>{{ $ecole->nom}}</td>
+                                        <td>{{ $loop->index }}</td>
+                                        <td>{{ $filiere->libelle}}</td>
                                     </tr>
 
                                 @endforeach
@@ -90,4 +94,3 @@
         </div>
 
 @endsection
-

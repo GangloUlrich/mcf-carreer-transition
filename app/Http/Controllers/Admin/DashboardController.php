@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ecole;
+use App\Models\Filiere;
+use App\Models\Secteur;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,14 +17,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $filieres = Filiere::all()->count();
+        $ecoles = Ecole::all()->count();
+        $secteurs = Secteur::all()->count();
         if(auth()->user()->type != 'admin'){
             return view('welcome');
         }else{
-            return  view('admin.dashboard');
+            return  view('admin.dashboard',[
+                "filieres" => $filieres,
+                "ecoles" => $ecoles,
+                "secteurs" => $secteurs
+            ]);
         }
 
 
     }
+
 
     /**
      * Show the form for creating a new resource.

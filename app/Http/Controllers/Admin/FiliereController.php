@@ -78,15 +78,18 @@ class FiliereController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Filiere  $filiere
+
      * @return \Illuminate\Http\Response
      */
-    public function edit(Filiere $filiere,$ecole)
+    public function edit(Ecole $ecole, Filiere $filiere)
     {
-        $filieres = Ecole::find($ecole)->filieres;
+        $filieres = Ecole::find($ecole->id)->filieres;
 
-        return  view('admin.filieres.edit',['filieres' => $filieres, 'ecole' => $ecole]);
+        return  view('admin.filieres.edit', [
+            'ecole' => $ecole,
+            'filiere' => $filiere,
+            'filieres' => $filieres
+        ]);
     }
 
     /**
@@ -96,19 +99,29 @@ class FiliereController extends Controller
      * @param  \App\Models\Filiere  $filiere
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Filiere $filiere, $ecole)
+    public function update(Request $request,Ecole $ecole,Filiere $filiere)
     {
+        $filieres = Ecole::find($ecole->id)->filieres;
+
         $validator = Validator::make($request->all(),Filiere::$rules);
 
         if($validator->fails()){
-            return  redirect()->route('filieres.edit',['filiere' => $filiere , 'ecole'=>$ecole])->withErrors($validator)->withInput();
+            return  redirect()->route('ecoles.filieres.edit',[
+                'filiere' => $filiere,
+                'ecole'=>$ecole,
+                'filieres' => $filieres
+            ])->withErrors($validator)->withInput();
         }
 
         $filiere->update($request->all());
 
-        Session::flash('message', 'Filiere créé avec success');
+        Session::flash('message', 'Filiere modifie avec success');
 
-        return redirect()->route('filieres.edit',['filiere' => $filiere , 'ecole'=>$ecole]);
+        return redirect()->route('ecoles.filieres.edit',[
+            'filiere' => $filiere,
+            'ecole'=>$ecole,
+            'filieres' => $filiere
+            ]);
     }
 
     /**
@@ -117,10 +130,10 @@ class FiliereController extends Controller
      * @param  \App\Models\Filiere  $filiere
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Filiere $filiere,$ecole)
+    public function destroy(Ecole $ecole,Filiere $filiere)
     {
         $filiere->delete();
-
-        return redirect()->route('ecoles.show',['ecole'=>$ecole]);
+        $filieres = Ecole::find($ecole->id)->filieres;
+        return redirect()->route('ecoles.show',['ecole'=>$ecole,'filieres' => $filieres]);
     }
 }

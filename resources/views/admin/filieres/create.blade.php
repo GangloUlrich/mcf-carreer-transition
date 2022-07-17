@@ -80,7 +80,7 @@
                             @else
 
                                 <tr>
-                                    <td>Aucune entree</td>
+                                    <td colspan="3" class="text-center">Aucune entree</td>
                                 </tr>
                             @endif
 

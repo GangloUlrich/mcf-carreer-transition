@@ -51,21 +51,20 @@
                             </tr>
 
 
-                            @if(sizeof($ecole->filieres) > 0 )
+                            @if(sizeof($filieres) > 0 )
 
-                                @foreach ($ecole->filieres as $filiere)
+                                @foreach ($filieres as $filiere)
 
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $filiere->libelle}}</td>
                                         <td>
                                             <a class="btn btn-success me-3"
-                                               href="{{ route('ecoles.filieres.edit', ['ecole'=> $ecole,'filiere' => $filiere]) }}"><i class="fa-solid fa-pen"></i></a>
+                                               href="{{ route('ecoles.filieres.edit',['filiere' => $filiere,'ecole' => $ecole]) }}"
+                                            ><i class="fa-solid fa-pen"></i></a>
                                             <a class="btn btn-danger" data-bs-toggle="modal"
                                                data-bs-target="#{{Str::words($filiere->libelle,1)}}"
                                                href="javascript:void(0)"><i class="fa-solid fa-trash"></i></a>
-
-
                                             <div class="modal fade" id="{{Str::words($filiere->libelle,1)}}" tabindex="-1"
                                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
@@ -81,7 +80,7 @@
                                                             <div class="text-regular h3 text-center mb-4">Etes-vous sur de vouloir supprimé l'école : <br> <strong class="text-danger">{{ $filiere->libelle }}</strong></div>
 
 
-                                                            <form method="post" class="d-flex justify-content-center" action="{{ route('ecoles.filieres.destroy', ['ecole'=> $ecole,'filiere'=>$filiere]) }}">
+                                                            <form method="post" class="d-flex justify-content-center" action="{{ route('ecoles.filieres.destroy', ['ecole' => $ecole, 'filiere' => $filiere]) }}">
                                                                 @csrf()
                                                                 @method('DELETE')
                                                                 <button type="button" class="btn btn-danger me-3 "
@@ -103,7 +102,7 @@
                             @else
 
                                 <tr>
-                                    <td>Aucune entree</td>
+                                    <td colspan="3" class="text-center">Aucune entree</td>
                                 </tr>
                             @endif
 

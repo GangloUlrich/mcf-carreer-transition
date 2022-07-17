@@ -19,6 +19,30 @@
                     </div>
 
 
+
+                    <div class="container">
+                        <form action="">
+
+                            <div>
+                                <input type="text" class="form-control" name="">
+                            </div>
+
+                            <div>
+                                <input type="text" class="form-control" name="" placeholder="Email">
+                            </div>
+
+                            <div>
+                                <input type="date" class="form-control" name="" placeholder="Date de naissance">
+                            </div>
+
+                            <div>
+                                <input type="text" class="form-control" name="">
+                            </div>
+
+                        </form>
+                    </div>
+
+
                 </div>
             </div>
         </div>
