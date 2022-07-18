@@ -44,7 +44,7 @@ Version 1.0
 
 }
 
-.nav-btn-primary i , .nav-btn-secondary i{
+.nav-btn-primary i , .nav-btn-secondary i, .mcf-btn-gradient i, i .mcf-link{
     margin-left: 1rem;
 }
 
@@ -90,4 +90,61 @@ Version 1.0
     h1{
         font-size: 3rem;
     }
+}
+
+
+/*login*/
+
+#loginHero{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: url('../img/hero-login.jpg') no-repeat;
+    background-size: cover ;
+}
+
+
+#loginContent{
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
+
+.mcf-input{
+    border:  1px solid  var(--mcf-primary);
+    border-radius: 10rem;
+}
+
+.mcf-link{
+    text-decoration: none;
+    color: var(--bs-dark);
+}
+
+.mcf-link:hover{
+    text-decoration: underline;
+    text-decoration-color: var(--mcf-secondary);
+    color: var(--mcf-secondary);
+}
+
+.mcf-link-primary{
+    color: var(--mcf-primary);
+}
+
+.mcf-link-primary:hover{
+    color: var(--mcf-secondary);
+}
+
+/* buttons */
+
+.mcf-btn-gradient{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10rem;
+    padding: 0.375rem 2rem;
+    background: var(--mcf-gradient);
+    color: var(--bs-white);
 }
