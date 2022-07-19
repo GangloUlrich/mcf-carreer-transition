@@ -7,11 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MCF CARREER TRANSITION</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/web.css') }}">
 </head>
 <body>
 
-@yield('content')
 
+
+
+
+@yield('header')
+
+<main>
+    @yield('content')
+</main>
+
+<footer class="container">
+
+</footer>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
