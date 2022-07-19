@@ -28,17 +28,30 @@
                                     <form method="POST" action="{{ route('login') }}" class="d-flex flex-column gap-4">
                                         @csrf()
 
-                                        @error('email','password')
+
+                                        @error('failed')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
+                                        @error('throttle')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
 
                                         <div>
-                                            <input type="email" name="email" id="" class="form-control mcf-input " placeholder="Email">
+                                            <input type="email" name="email" id="" class="form-control mcf-input @error('email') is-invalid
+                                            @enderror " placeholder="Email">
+                                            @error('email')
+                                                <span class="invalid-feedback">{{ $message }}</span>
+                                            @enderror
 
                                         </div>
 
                                         <div>
-                                            <input type="password" name="password" id="" class="form-control mcf-input" placeholder="Mot de passe">
+                                            <input type="password" name="password" id="" class="form-control mcf-input  @error('email') is-invalid
+                                            @enderror" placeholder="Mot de passe">
+                                            @error('password')
+                                                <span class="invalid-feedback">{{ $message }}</span>
+                                            @enderror
 
                                         </div>
 
