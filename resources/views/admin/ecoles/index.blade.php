@@ -44,11 +44,11 @@
                                             <a class="btn btn-success me-3"
                                                href="{{ route('ecoles.edit', ['ecole'=> $ecole]) }}"><i class="fa-solid fa-pen me-2"></i> Modifier</a>
                                             <a class="btn btn-danger" data-bs-toggle="modal"
-                                               data-bs-target="#{{Str::words($ecole->nom,1)}}"
+                                               data-bs-target="#{{Str::lower(Str::words($ecole->nom,1,''))}}"
                                                href="javascript:void(0)"><i class="fa-solid fa-trash me-2"></i>Supprimer</a>
 
 
-                                            <div class="modal fade" id="{{Str::words($ecole->nom,1)}}" tabindex="-1"
+                                            <div class="modal fade" id="{{Str::lower(Str::words($ecole->nom,1,''))}}" tabindex="-1"
                                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">

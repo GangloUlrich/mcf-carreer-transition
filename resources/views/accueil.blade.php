@@ -11,7 +11,13 @@
 
                 <nav class="d-none d-md-flex nav">
                     <a class="nav-link active nav-btn-primary  " aria-current="page" href="#">Commencer <i class="fa-solid fa-arrow-right"></i></a>
-                    <a class="nav-link nav-btn-secondary" href="{{ route('login') }}">Connexion <i class="fa-solid fa-right-to-bracket"></i></a>
+
+                   @auth
+                   <a class="nav-link nav-btn-secondary" href="{{ route('dashboard') }}">Dashboard <i class="fa-solid fa-right-to-bracket"></i></a>
+                   @else
+                   <a class="nav-link nav-btn-secondary" href="{{ route('login') }}">Connexion <i class="fa-solid fa-right-to-bracket"></i></a>
+                   @endauth
+
 
                 </nav>
 
