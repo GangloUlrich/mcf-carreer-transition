@@ -148,3 +148,104 @@ Version 1.0
     background: var(--mcf-gradient);
     color: var(--bs-white);
 }
+
+.step-icone{
+    height: 40px;
+    width: 40px;
+    background: var(--mcf-gradient);
+    color: var(--bs-white);
+    border-radius: 50rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icone::before{
+    position: relative;
+    display: block;
+    width: 150px;
+    height: 8px;
+    background: #0a0a0a;
+}
+
+
+/*
+Form steps*/
+
+.steps{
+    margin: 2.5rem auto;
+    overflow: hidden;
+}
+
+.steps ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.steps ul li {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    margin: auto 10rem;
+}
+
+.steps ul li:hover, .steps ul li.active{
+    color: var(--mcf-primary);
+}
+
+.steps ul li:hover span, .steps ul li.active span{
+    background: var(--mcf-primary);
+    color: var(--bs-white);
+}
+
+.steps ul li:hover span::before, .steps ul li.active span::after{
+    background: var(--mcf-primary);
+    color: var(--bs-white);
+    width: 100%;
+}
+
+.steps ul li::before , .steps ul li::after{
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: -430%;
+    background: var(--mcf-primary);
+    color: var(--bs-white);
+    height: 3px;
+    width: 500%;
+    transition: all .4s ease-in-out;
+    transform: translateY(-50%);
+}
+
+
+.steps ul li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50rem;
+    background: var(--mcf-primary);
+    color: var(--bs-white);
+    transition: all .4s ease-in-out;
+    font-size: 1rem;
+    line-height: 35px;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 15px;
+}
+
+.steps ul li:first-child::before,
+.steps ul li:first-child::after {
+    display: none;
+}
+
+.form-wizard{
+    position:  relative;
+    display: table;
+    margin: 0 auto;
+    max-width: 540px;
+}

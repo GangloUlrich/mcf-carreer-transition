@@ -10,7 +10,7 @@
                 <a href="https://mcfsp-uac.bj/" target="_blank" id="headerLink"><img src="{{ asset('img/logo.webp') }}" alt="MCFSP-UAC" class="logo"></a>
 
                 <nav class="d-none d-md-flex nav">
-                    <a class="nav-link active nav-btn-primary  " aria-current="page" href="#">Commencer <i class="fa-solid fa-arrow-right"></i></a>
+                    <a class="nav-link active nav-btn-primary  " aria-current="page" href="{{ route('register') }}">Commencer <i class="fa-solid fa-arrow-right"></i></a>
 
                    @auth
                    <a class="nav-link nav-btn-secondary" href="{{ route('dashboard') }}">Dashboard <i class="fa-solid fa-right-to-bracket"></i></a>
