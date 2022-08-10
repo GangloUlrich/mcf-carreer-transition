@@ -24,7 +24,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="mt-1 mb-3">2.382</h1>
+                                    <h1 class="mt-1 mb-3">@isset($users) {{ $users }} @endisset</h1>
 
                                 </div>
                             </div>
