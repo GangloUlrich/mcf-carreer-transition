@@ -24,6 +24,11 @@ class User extends Authenticatable
         'type'
     ];
 
+    public function info()
+    {
+        $this->hasOne(Info::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

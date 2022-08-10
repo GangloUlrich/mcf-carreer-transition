@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('accueil');
 
+
+Route::post('/list/filieres',[\App\Http\Controllers\HomeController::class,'selectFilieres']);
+
 Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');

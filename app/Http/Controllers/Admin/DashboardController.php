@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Ecole;
 use App\Models\Filiere;
 use App\Models\Secteur;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -20,14 +21,25 @@ class DashboardController extends Controller
         $filieres = Filiere::all()->count();
         $ecoles = Ecole::all()->count();
         $secteurs = Secteur::all()->count();
+        $users = User::all()->count() - 1;
+
         if(auth()->user()->type != 'admin'){
-            return view('welcome');
+
+            $connected = auth()->user()->id;
+
+            $user = User::find($connected);
+
+            return view('dashboard',compact('user'));
+
         }else{
+
             return  view('admin.dashboard',[
                 "filieres" => $filieres,
                 "ecoles" => $ecoles,
-                "secteurs" => $secteurs
+                "secteurs" => $secteurs,
+                "users" => $users
             ]);
+
         }
 
 

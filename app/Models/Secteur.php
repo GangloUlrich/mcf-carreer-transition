@@ -10,6 +10,7 @@ class Secteur extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'libelle'
     ];
 
