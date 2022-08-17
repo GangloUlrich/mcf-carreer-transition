@@ -18,7 +18,7 @@
                 </a>
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                    <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Administrateur</span>
+                    <img src="{{ asset('favicon.ico') }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Administrateur</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion <i class="fa-solid fa-right-to-bracket"></i></a>
