@@ -25,12 +25,21 @@ class UserService
         $lastname = Str::slug($lastname, '_');
         $resume_name = "cv_" . $firstname . '_' . $lastname . "." . $resume->getClientOriginalExtension();
 
-        $resume_path = Storage::putFileAs('public', $resume, $resume_name);
+        $checkResumeExists = Storage::disk('public')->exists('resumes/'.$resume_name);
 
-        return [
-            'name' => $resume_name,
-            'path' => $resume_path
-        ];
+        if($checkResumeExists){
+
+        Storage::disk('public')->delete('resumes/'.$resume_name);
+
+        $resume_path = Storage::disk('public')->putFileAs('resumes', $resume, $resume_name);
+
+        }
+        else{
+
+            $resume_path = Storage::disk('public')->putFileAs('resumes', $resume, $resume_name);
+        }
+
+        return $resume_path;
 
     }
 
@@ -55,12 +64,12 @@ class UserService
     {
 
         $info = Info::create([
-            'firstname' => $datas["lastname"],
-            'lastname' => $datas["firstname"],
-            'resume' => $resume["path"],
+            'firstname' => $datas["firstname"],
+            'lastname' => $datas["lastname"],
+            'resume' => $resume,
             'birthday' => $datas['birthdate'],
             'sexe' => $datas['sexe'],
-            'cohorte' => $datas['cohorte'],
+            'cohorte' => $datas['cohorte'], 
             'phone' => $datas['phone'],
             'secteur_id' => $datas['secteur'],
             'filiere_id' => $datas['filiere'],

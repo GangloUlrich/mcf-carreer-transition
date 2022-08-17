@@ -6,7 +6,7 @@
             <div class="d-flex align-items-center justify-content-between">
 
 
-                <a href="https://mcfsp-uac.bj/" target="_blank" id="headerLink"><img src="{{ asset('img/logo.webp') }}"
+                <a href="{{route('accueil')}}" target="_blank" id="headerLink"><img src="{{ asset('img/logo.webp') }}"
                                                                                      alt="MCFSP-UAC" class="logo"></a>
 
                 <nav class="d-none d-md-flex nav">
