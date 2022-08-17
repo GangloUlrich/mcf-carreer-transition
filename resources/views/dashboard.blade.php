@@ -83,7 +83,7 @@
                                <div class="text-muted mb-0">Date de naissance de l'utilisateur :</div>
                            </div>
                            <div class="col-12 col-lg-9 col-xl-8 font-size-18">
-                               <div>{{ $user->info->birthday }}</div></div>
+                               <div>{{ \Carbon\Carbon::parse($user->info->birthday)->locale('fr_FR')->isoFormat('LLLL')}}</div></div>
                        </div>
                    </div>
 
