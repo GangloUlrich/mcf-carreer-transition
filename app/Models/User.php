@@ -26,7 +26,7 @@ class User extends Authenticatable
 
     public function info()
     {
-        $this->hasOne(Info::class);
+        return $this->hasOne(Info::class);
     }
 
     /**

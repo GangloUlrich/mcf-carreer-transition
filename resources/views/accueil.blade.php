@@ -7,16 +7,21 @@
             <div class="d-flex align-items-center justify-content-between">
 
 
-                <a href="https://mcfsp-uac.bj/" target="_blank" id="headerLink"><img src="{{ asset('img/logo.webp') }}" alt="MCFSP-UAC" class="logo"></a>
+                <a href="https://mcfsp-uac.bj/" target="_blank" id="headerLink"><img src="{{ asset('img/logo.webp') }}"
+                                                                                     alt="MCFSP-UAC" class="logo"></a>
 
                 <nav class="d-none d-md-flex nav">
-                    <a class="nav-link active nav-btn-primary  " aria-current="page" href="{{ route('register') }}">Commencer <i class="fa-solid fa-arrow-right"></i></a>
 
-                   @auth
-                   <a class="nav-link nav-btn-secondary" href="{{ route('dashboard') }}">Dashboard <i class="fa-solid fa-right-to-bracket"></i></a>
-                   @else
-                   <a class="nav-link nav-btn-secondary" href="{{ route('login') }}">Connexion <i class="fa-solid fa-right-to-bracket"></i></a>
-                   @endauth
+
+                    @auth
+                        <a class="nav-link nav-btn-secondary" href="{{ route('dashboard') }}">Dashboard <i
+                                class="fa-solid fa-right-to-bracket"></i></a>
+                    @else
+                        <a class="nav-link active nav-btn-primary  " aria-current="page" href="{{ route('register') }}">Commencer
+                            <i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="nav-link nav-btn-secondary" href="{{ route('login') }}">Connexion <i
+                                class="fa-solid fa-right-to-bracket"></i></a>
+                    @endauth
 
 
                 </nav>
@@ -27,7 +32,7 @@
 
     </header>
 
-    @endsection
+@endsection
 
 @section('content')
 
@@ -47,7 +52,8 @@
             </div>
 
             <div>
-                <a href="{{ route('register') }}" class="nav-btn-primary">S'inscrire <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="{{ route('register') }}" class="nav-btn-primary">S'inscrire <i
+                        class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
 

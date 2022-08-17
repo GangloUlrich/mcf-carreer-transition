@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="{{ route('accueil') }}">
-            <span class="align-middle">MCF CARREER</span>
+        <a class="sidebar-brand" href="{{ route('accueil') }}"><img src="{{ asset('img/logo.webp') }}" alt="MCFSP-UAC" class="logo bg-white">
+            <div class="align-middle font-size-14 mt-3">MCF CARREER TRANSITION</div>
         </a>
 
         <ul class="sidebar-nav">
@@ -21,7 +21,7 @@
                     <span class="align-middle">Boursiers</span>
                 </a>
                 <ul id="boursier" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" style="">
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('ecoles.index') }}"><i class="fa-solid fa-align-justify"></i> Liste des boursiers</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ route('scholars') }}"><i class="fa-solid fa-align-justify"></i> Liste des boursiers</a></li>
 
                 </ul>
             </li>

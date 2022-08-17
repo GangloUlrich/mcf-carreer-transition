@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\UserRequest;
+use App\Http\Requests\ResumeRequest;
 use App\Models\Ecole;
 use App\Models\Filiere;
+use App\Models\Info;
 use App\Models\Secteur;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class HomeController extends Controller
@@ -71,6 +75,41 @@ class HomeController extends Controller
         $userService->saveUserInfos($newUserInformations, $userFileResumeInformations,$user);
 
         return redirect(RouteServiceProvider::HOME);
+
+
+    }
+
+
+    public function displayResume($id){
+        $resume =User::find($id)->info->resume;
+        $path = Storage::disk('public')->path($resume);
+
+        return response()->file($path);
+    }
+
+
+    public function changeResumeForm($user){
+        $scholar = User::findorfail($user);
+        return view('resumes.updateresume',[
+            'user' => $scholar
+        ]);
+    }
+
+    public function changeResume(ResumeRequest $request, $user){
+
+        $param = $user;
+        $user = User::findorfail($param);
+        $datas = [
+          'firstname' => $user->info->firstname,
+          'lastname' => $user->info->lastname,
+          'resume' => $request->resume
+        ];
+
+        $scholar = new UserService();
+
+        $scholar->saveUserResume($datas);
+
+        return view('resumes.displaynewresume',['user' => $user]);
 
 
     }

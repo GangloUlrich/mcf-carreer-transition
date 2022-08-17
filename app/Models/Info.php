@@ -27,18 +27,18 @@ class Info extends Model
 
 
     public function filiere(){
-        $this->belongsTo(Filiere::class);
+        return $this->belongsTo(Filiere::class);
     }
 
     public function  ecole(){
-        $this->belongsTo(Ecole::class);
+        return $this->belongsTo(Ecole::class);
     }
 
     public function secteur(){
-        $this->belongsTo(Secteur::class);
+        return $this->belongsTo(Secteur::class);
     }
 
     public function user(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }
