@@ -10,6 +10,32 @@
                 <a href="https://mcfsp-uac.bj/" target="_blank" id="headerLink"><img src="{{ asset('img/logo.webp') }}"
                                                                                      alt="MCFSP-UAC" class="logo"></a>
 
+
+
+                <div class="d-md-none">
+                    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                    </button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">MCF CARREER TRANSITION</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="row gap-3">
+                                <div>
+                                    <a href="{{ route('register') }}" class="nav-btn-primary">Creer un compte</a>
+                                </div>
+
+                                <div>
+                                    <a href="{{ route('login') }}" class="nav-btn-secondary">Se connecter</a>
+                                </div>
+                            </div>                   </div>
+                    </div>
+
+                </div>
+
                 <nav class="d-none d-md-flex nav">
 
 

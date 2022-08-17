@@ -663,3 +663,17 @@ Form steps*/
 .mcf-color-orange{
     color: var(--mcf-primary);
 }
+
+i.mcf-icon{
+    display: inline-block;
+}
+.menu-icon{
+    display: block;
+    width: 18px;
+    height: 18px;
+    -webkit-mask-image: url("../img/th-solid.svg");
+    -webkit-mask-size: contain;
+    background-color: #0000;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+}
